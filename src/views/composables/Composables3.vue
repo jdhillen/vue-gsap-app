@@ -1,9 +1,9 @@
 <!--|== Template =============================================================================== -->
 <template>
-  <div ref="container" class="page home container">
+  <div ref="container" class="page container">
     <div class="row">
-      <div ref="content" class="twelve columns">
-        <h1>Headline Goes Here</h1>
+      <div class="twelve columns">
+        <h1>Animation Using Composables #3</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
           mollis laoreet lectus lobortis luctus. Aenean vel orci ante. Mauris sit
@@ -15,17 +15,11 @@
           quam non feugiat egestas, tortor sem rutrum mauris, eget semper ante
           justo vel mauris.
         </p>
-        <p>
-          Praesent eu molestie nisi. Sed nec tincidunt nibh. Ut molestie
-          vestibulum ligula, vel interdum leo sollicitudin quis. Sed lectus ante,
-          pellentesque eu efficitur ut, euismod sed enim. Vestibulum at sem ex.
-          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-          cubilia curae; Fusce et lacus sit amet lorem faucibus aliquam vel quis
-          libero. Donec quis pharetra augue. In rutrum odio vel lacus eleifend
-          iaculis. Nunc lacus nisi, feugiat in quam eget, vulputate fringilla
-          nunc. Nunc in mattis lectus. Quisque facilisis felis id enim viverra
-          sagittis. Duis a lacus nunc.
-        </p>
+        <div class="button-container">
+          <router-link :to="{ name: 'Composables1' }" class="button button-primary">Page 1</router-link>
+          <router-link :to="{ name: 'Composables2' }" class="button button-primary">Page 2</router-link>
+          <router-link :to="{ name: 'Composables3' }" class="button button-primary">Page 3</router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -33,26 +27,14 @@
 
 <!--|== Scripts ================================================================================ -->
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
+import { animateInOut } from '@/composables/animateInOut';
 
 const container = ref(null);
-const content = ref(null);
 
-onMounted(() => {
-  gsap.from(container.value, {
-    delay: 0.5,
-    duration: 1,
-    y: '+100',
-    autoAlpha: 0,
-    ease: Back.easeOut,
-  });
-});
-
-
+animateInOut(container);
 </script>
 
 <!--|== CSS ==================================================================================== -->
 <style lang="scss" scoped>
-.home {
-}
 </style>

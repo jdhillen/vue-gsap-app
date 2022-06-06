@@ -1,71 +1,28 @@
 <!--|== Template =============================================================================== -->
 <template>
-  <section class="app container">
-    <div class="row">
-      <div class="twelve columns">
-        <div id="nav">
-          <router-link :to="{ name: 'Home' }">Home</router-link> |
-          <router-link :to="{ name: 'About' }">About</router-link>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="twelve columns">
-        <img alt="Vue logo" src="@/assets/img/logo.png" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="twelve columns">
-        <p>{{ title }}</p>
-      </div>
-    </div>
-    <router-view />
-  </section>
+  <main class="app">
+    <SideNavigation/>
+    <section class="app">
+      <router-view />
+    </section>
+  </main>
 </template>
 
 <!--|== Scripts ================================================================================ -->
-<script>
-export default {
-  name: 'app',
-
-  props: {},
-
-  components: {},
-
-  data() {
-    return {
-      title: import.meta.env.VITE_APP_TITLE
-    };
-  },
-
-  beforeCreate() {},
-
-  created() {},
-
-  beforeMount() {},
-
-  mounted() {},
-
-  beforeUpdate() {},
-
-  updated() {},
-
-  beforeUnmount() {},
-
-  unmounted() {},
-
-  computed: {},
-
-  methods: {},
-
-  watch: {}
-};
+<script setup>
+import SideNavigation from './components/SideNavigation.vue';
 </script>
 
 <!--|== CSS ==================================================================================== -->
 <style lang="scss">
+#app {
+  width: 100%;
+  height: 100%;
+}
 .app {
-  text-align: center;
-  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
 }
 </style>

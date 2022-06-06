@@ -18,11 +18,11 @@ body {
   font-size: 14px;
   font-style: normal;
   @extend .smooth;
+  overflow: hidden;
 }
 
-a {
-  color: #42b983;
-  text-decoration: none;
+.page {
+  padding-top: 50px;
 }
 
 // ==|== Disable Click Events ======================================================================
@@ -35,4 +35,12 @@ a {
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
+}
+
+// ==|== Composable Button Container ===============================================================
+.button-container {
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

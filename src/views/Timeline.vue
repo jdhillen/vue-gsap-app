@@ -1,9 +1,9 @@
 <!--|== Template =============================================================================== -->
 <template>
-  <div ref="container" class="page home container">
+  <div ref="container" class="page about container">
     <div class="row">
-      <div ref="content" class="twelve columns">
-        <h1>Headline Goes Here</h1>
+      <div  class="twelve columns">
+        <h1>About</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
           mollis laoreet lectus lobortis luctus. Aenean vel orci ante. Mauris sit
@@ -26,6 +26,21 @@
           nunc. Nunc in mattis lectus. Quisque facilisis felis id enim viverra
           sagittis. Duis a lacus nunc.
         </p>
+        <p>
+          Curabitur pretium erat nisi, vitae pretium velit aliquam efficitur.
+          Aliquam metus leo, gravida in magna ut, pellentesque ornare est. Etiam
+          facilisis porta nibh, convallis varius neque imperdiet ut. Fusce at mi a
+          nisi tincidunt mollis. Donec et erat et augue pulvinar convallis. Nam
+          luctus egestas purus et iaculis. Maecenas efficitur purus ut posuere
+          sodales. Curabitur ac dignissim ante. Nulla faucibus mauris ac dui
+          dictum ornare. Integer accumsan sem metus, id ultricies sem cursus
+          vitae. Fusce accumsan, sapien at tempor eleifend, tortor purus efficitur
+          tortor, ut maximus sapien lectus ut ante. Pellentesque aliquam diam eu
+          porta luctus. Curabitur nec nunc sed enim pharetra vestibulum. Nam
+          semper nulla non lectus consequat, consequat interdum ex vehicula. Orci
+          varius natoque penatibus et magnis dis parturient montes, nascetur
+          ridiculus mus. Duis mattis nisl diam.
+        </p>
       </div>
     </div>
   </div>
@@ -34,25 +49,14 @@
 <!--|== Scripts ================================================================================ -->
 <script setup>
 import { ref, onMounted } from 'vue';
+import { animateInOut } from '../composables/animateInOut';
 
 const container = ref(null);
-const content = ref(null);
-
-onMounted(() => {
-  gsap.from(container.value, {
-    delay: 0.5,
-    duration: 1,
-    y: '+100',
-    autoAlpha: 0,
-    ease: Back.easeOut,
-  });
-});
-
-
+animateInOut(container);
 </script>
 
 <!--|== CSS ==================================================================================== -->
 <style lang="scss" scoped>
-.home {
+.about {
 }
 </style>

@@ -9,9 +9,39 @@ const routes = [
     component: () => import('@/views/Home.vue')
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('@/views/About.vue')
+    path: '/timeline',
+    name: 'Timeline',
+    component: () => import('@/views/Timeline.vue')
+  },
+  {
+    path: '/transitions',
+    name: 'Transitions',
+    component: () => import('@/views/Transitions.vue')
+  },
+  {
+    path: '/transitionscomponent',
+    name: 'TransitionsComponent',
+    component: () => import('@/views/TransitionsComponent.vue')
+  },
+  {
+    path: '/composables1',
+    name: 'Composables1',
+    component: () => import('@/views/composables/Composables1.vue')
+  },
+  {
+    path: '/composables2',
+    name: 'Composables2',
+    component: () => import('@/views/composables/Composables2.vue')
+  },
+  {
+    path: '/composables3',
+    name: 'Composables3',
+    component: () => import('@/views/composables/Composables3.vue')
+  },
+  {
+    path: '/numbers',
+    name: 'Numbers',
+    component: () => import('@/views/Numbers.vue')
   },
   {
     path: '/:catchAll(.*)',
@@ -29,7 +59,7 @@ const router = createRouter({
     } else {
       return { top: 0 };
     }
-  }
+  },
 });
 
 // ==|== Export ====================================================================================
