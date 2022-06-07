@@ -34,6 +34,7 @@
 <!--|== Scripts ================================================================================ -->
 <script setup>
 import { ref, onMounted } from 'vue';
+import gsap from 'gsap';
 
 const container = ref(null);
 const content = ref(null);
@@ -44,7 +45,7 @@ onMounted(() => {
     duration: 1,
     y: '+100',
     autoAlpha: 0,
-    ease: Back.easeOut,
+    ease: "back.out(1.7)",
   });
 });
 

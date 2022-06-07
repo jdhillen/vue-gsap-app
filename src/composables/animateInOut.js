@@ -1,6 +1,7 @@
 // ==|== Imports ===================================================================================
 import { onMounted } from 'vue';
 import { onBeforeRouteLeave } from 'vue-router'
+import gsap from 'gsap';
 
 export function animateInOut(el) {
   onMounted(() => {
@@ -8,7 +9,7 @@ export function animateInOut(el) {
       duration: 0.5,
       x: '-1000',
       autoAlpha: 0,
-      ease: Power2.easeOut,
+      ease: "power2.out",
     });
   });
 
@@ -17,7 +18,7 @@ export function animateInOut(el) {
       duration: 0.5,
       x: '+1000',
       autoAlpha: 0,
-      ease: Power2.easeIn,
+      ease: "power2.in",
       onComplete: () => {
         next();
       }

@@ -50,7 +50,7 @@ function onEnter(el, done) {
     duration: 0.5,
     scale: 1,
     autoAlpha: 1,
-    ease: Power2.easeOut,
+    ease: "power2.out",
     onComplete: done
   });
 }

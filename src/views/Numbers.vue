@@ -15,6 +15,7 @@
 <!--|== Scripts ================================================================================ -->
 <script setup>
 import { reactive, watch, computed } from 'vue';
+import gsap from 'gsap';
 
 const data = reactive({
   num: 0,
