@@ -1,10 +1,10 @@
 <!--|== Template =============================================================================== -->
 <template>
-  <div ref="container" class="page about container">
+  <div class="page container">
     <div class="row">
       <div  class="twelve columns">
-        <h1>About</h1>
-        <p>
+        <h1 ref="title">About</h1>
+        <p ref="paraOne">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
           mollis laoreet lectus lobortis luctus. Aenean vel orci ante. Mauris sit
           amet consequat tortor. Mauris tristique sodales nisl, vel tincidunt
@@ -15,7 +15,7 @@
           quam non feugiat egestas, tortor sem rutrum mauris, eget semper ante
           justo vel mauris.
         </p>
-        <p>
+        <p ref="paraTwo">
           Praesent eu molestie nisi. Sed nec tincidunt nibh. Ut molestie
           vestibulum ligula, vel interdum leo sollicitudin quis. Sed lectus ante,
           pellentesque eu efficitur ut, euismod sed enim. Vestibulum at sem ex.
@@ -26,7 +26,7 @@
           nunc. Nunc in mattis lectus. Quisque facilisis felis id enim viverra
           sagittis. Duis a lacus nunc.
         </p>
-        <p>
+        <p ref="paraThree">
           Curabitur pretium erat nisi, vitae pretium velit aliquam efficitur.
           Aliquam metus leo, gravida in magna ut, pellentesque ornare est. Etiam
           facilisis porta nibh, convallis varius neque imperdiet ut. Fusce at mi a
@@ -48,15 +48,27 @@
 
 <!--|== Scripts ================================================================================ -->
 <script setup>
-import { ref, onMounted } from 'vue';
-import { animateInOut } from '../composables/animateInOut';
+import { ref, onMounted, onBeforeMount } from 'vue';
+import gsap from 'gsap';
+import { CSSPlugin } from 'gsap/CSSPlugin';
 
-const container = ref(null);
-animateInOut(container);
+gsap.registerPlugin(CSSPlugin);
+
+const title = ref(null);
+const paraOne = ref(null);
+const paraTwo = ref(null);
+const paraThree = ref(null);
+
+onMounted(() => {
+  console.log(paraTwo.value);
+  const tl = gsap.timeline({ delay: 1, paused: true });
+  tl.from(title.value, { x:'-200', autoAlpha:0, duration: 1 });
+  tl.from(paraOne.value, { x:'+200', autoAlpha:0, duration: 1 });
+  tl.from(paraTwo.value, { x:'-200', autoAlpha:0, duration: 1 });
+  tl.from(paraThree.value, { x:'+200', autoAlpha:0, duration: 1 });
+  tl.play();
+});
 </script>
 
 <!--|== CSS ==================================================================================== -->
-<style lang="scss" scoped>
-.about {
-}
-</style>
+<style lang="scss" scoped></style>
